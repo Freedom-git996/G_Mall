@@ -152,4 +152,40 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <resultMap id="loginResultMap" type="com.vectory.pojo.vo.UserLoginVO">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="role" jdbcType="INTEGER" property="role" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="login">
+    id, username, email, phone, role, create_time, update_time
+  </sql>
+  <select id="selectForLogin" parameterType="com.vectory.pojo.qo.UserLoginQo" resultMap="loginResultMap">
+    select
+    <include refid="login" />
+    from user
+    where username = #{username,jdbcType=VARCHAR}
+    and password = #{password,jdbcType=VARCHAR}
+  </select>
+
+  <select id="checkValid" parameterType="java.util.Map" resultType="int">
+    select
+    count(*)
+    from user
+    <where>
+      <choose>
+        <when test="paramName == 'username'">
+          username = #{checkValue,jdbcType=VARCHAR}
+        </when>
+        <when test="paramName == 'email'">
+          and username = #{checkValue,jdbcType=VARCHAR}
+        </when>
+      </choose>
+    </where>
+  </select>
 </mapper>
