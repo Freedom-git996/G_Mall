@@ -16,7 +16,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @ApiModel(value = "用户注册入参")
-public class UserRegisterQo implements Serializable {
+public class UserRegisterQO implements Serializable {
     private static final long serialVersionUID = -5144153677091779979L;
 
     /**

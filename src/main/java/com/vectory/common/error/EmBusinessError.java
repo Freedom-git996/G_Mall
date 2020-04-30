@@ -2,8 +2,14 @@ package com.vectory.common.error;
 
 public enum EmBusinessError implements CommonError {
     LOGIN_ERROR(10001, "用户不存在或密码错误"),
-    USERNAME_REPEAT(1002, "用户名已存在"),
-    EMAIL_REPEAT(1002, "邮箱已被注册"),
+    REGISTER_ERROR(1002, "注册失败"),
+    USERNAME_REPEAT(1003, "用户名已存在"),
+    EMAIL_REPEAT(1003, "邮箱已被注册"),
+    NO_LOGIN(1004, "暂无用户登录"),
+    NO_SECURITY_QUESTION(1005, "该用户未设置密保问题"),
+    QUESTION_ANSWER_ERROR(1006, "密保问题答案错误"),
+    RESET_TOKEN_ERROR(1007, "token失效"),
+    USERINFO_UPDATE_ERROR(1008, "信息更新失败"),
 
     ILLEGAL_ARGUMENT(501, "不合法参数"),
     SERVER_ERROR(500, "服务器内部异常，请联系管理员")

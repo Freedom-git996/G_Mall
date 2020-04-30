@@ -1,13 +1,35 @@
 package com.vectory.service;
 
 import com.vectory.common.CommonReturnType;
-import com.vectory.common.error.BusinessException;
-import com.vectory.pojo.qo.UserLoginQo;
-import com.vectory.pojo.qo.UserRegisterQo;
-import com.vectory.pojo.vo.UserLoginVO;
+import com.vectory.pojo.qo.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public interface IUserService {
-    UserLoginVO login(UserLoginQo userLoginQo);
+    CommonReturnType login(UserLoginQO userLoginQo,
+                           HttpSession session,
+                           HttpServletResponse response);
 
-    int register(UserRegisterQo userRegisterQo) throws BusinessException;
+    CommonReturnType register(UserRegisterQO userRegisterQo);
+
+    CommonReturnType checkValid(String checkValue, String paramName);
+
+    CommonReturnType getUserInfo(HttpServletRequest request);
+
+    CommonReturnType forgetGetQuestion(String username);
+
+    CommonReturnType forgetCheckAnswer(CheckAnswerQO checkAnswerQo);
+
+    CommonReturnType forgetResetPassword(ResetPasswordQO resetPasswordQO);
+
+    CommonReturnType resetPassword(UpdatePasswordQO updatePasswordQO,
+                                   HttpServletRequest request);
+
+    CommonReturnType updateInformation(UpdateUserInfoQO updateUserInfoQO,
+                                   HttpServletRequest request);
+
+    CommonReturnType logout(HttpServletRequest request,
+                            HttpServletResponse response);
 }

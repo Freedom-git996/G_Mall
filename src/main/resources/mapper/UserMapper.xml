@@ -165,7 +165,7 @@
   <sql id="login">
     id, username, email, phone, role, create_time, update_time
   </sql>
-  <select id="selectForLogin" parameterType="com.vectory.pojo.qo.UserLoginQo" resultMap="loginResultMap">
+  <select id="selectForLogin" parameterType="com.vectory.pojo.qo.UserLoginQO" resultMap="loginResultMap">
     select
     <include refid="login" />
     from user
@@ -175,7 +175,7 @@
 
   <select id="checkValid" parameterType="java.util.Map" resultType="int">
     select
-    count(*)
+    count(1)
     from user
     <where>
       <choose>
@@ -188,4 +188,34 @@
       </choose>
     </where>
   </select>
+
+  <select id="getQuestion" parameterType="java.lang.String" resultType="string">
+    select question
+    from user
+    where username = #{username,jdbcType=VARCHAR}
+  </select>
+
+  <select id="forgetCheckAnswer" parameterType="com.vectory.pojo.qo.CheckAnswerQO" resultType="int">
+    select
+    count(1)
+    from user
+    where username = #{username,jdbcType=VARCHAR}
+    and question = #{question,jdbcType=VARCHAR}
+    and answer = #{answer,jdbcType=VARCHAR}
+  </select>
+
+  <update id="resetPassword">
+    update user
+    set password = #{resetPasswordQO.newPassword,jdbcType=VARCHAR},
+    update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where username = #{resetPasswordQO.username,jdbcType=VARCHAR}
+  </update>
+
+  <update id="updatePassword">
+    update user
+    set password = #{updatePasswordQO.newPassword,jdbcType=VARCHAR},
+    update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where username = #{username, jdbcType=VARCHAR}
+    and password = #{updatePasswordQO.oldPassword,jdbcType=VARCHAR}
+  </update>
 </mapper>
