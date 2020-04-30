@@ -42,6 +42,7 @@
     <commons.net.version>3.6</commons.net.version>
     <com.google.guava.version>27.1-jre</com.google.guava.version>
     <joda.time.version>2.10.2</joda.time.version>
+    <org.hibernate.validator.version>5.4.1.Final</org.hibernate.validator.version>
   </properties>
 
   <dependencies>
@@ -226,6 +227,23 @@
       <groupId>joda-time</groupId>
       <artifactId>joda-time</artifactId>
       <version>${joda.time.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>${org.hibernate.validator.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger2</artifactId>
+      <version>2.9.2</version>
+    </dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger-ui</artifactId>
+      <version>2.9.2</version>
     </dependency>
   </dependencies>
 
