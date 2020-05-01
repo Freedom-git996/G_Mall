@@ -145,6 +145,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED)
     public CommonReturnType updateInformation(UpdateUserInfoQO updateUserInfoQO,
                                               HttpServletRequest request) {
         String loginToken = CookieUtil.getCookieValue(request, GlobalContant.LOGIN_COOKIE);
