@@ -38,6 +38,7 @@ public class UserServiceImpl implements IUserService {
     public CommonReturnType login(UserLoginQO userLoginQo,
                                   HttpSession session,
                                   HttpServletResponse response) {
+        userLoginQo.setPassword(MD5Util.MD5EncodeUtf8(userLoginQo.getPassword()));
         UserLoginVO userLoginVO = userMapper.selectForLogin(userLoginQo);
         if(userLoginVO == null)
             return CommonReturnType.fail(EmBusinessError.LOGIN_ERROR);
@@ -120,6 +121,7 @@ public class UserServiceImpl implements IUserService {
         if(StringUtils.isBlank(resetToken) || StringUtils.equals(resetToken, resetPasswordQO.getResetToke())) {
             return CommonReturnType.success(EmBusinessError.RESET_TOKEN_ERROR);
         }
+        resetPasswordQO.setNewPassword(MD5Util.MD5EncodeUtf8(resetPasswordQO.getNewPassword()));
         return userMapper.resetPassword(resetPasswordQO, new Date()) == 0 ?
                 CommonReturnType.fail(EmBusinessError.USERINFO_UPDATE_ERROR)
                 : CommonReturnType.success("密码重置成功");
@@ -135,6 +137,8 @@ public class UserServiceImpl implements IUserService {
                 || (userLoginVO = JsonUtil.string2Obj(JedisUtil.get(loginToken), UserLoginVO.class)) == null) {
             return CommonReturnType.fail(EmBusinessError.NO_LOGIN);
         }
+        updatePasswordQO.setOldPassword(MD5Util.MD5EncodeUtf8(updatePasswordQO.getOldPassword()));
+        updatePasswordQO.setNewPassword(MD5Util.MD5EncodeUtf8(updatePasswordQO.getNewPassword()));
         return userMapper.updatePassword(updatePasswordQO, userLoginVO.getUsername(), new Date()) == 0 ?
                 CommonReturnType.fail(EmBusinessError.USERINFO_UPDATE_ERROR)
                 : CommonReturnType.success("密码重置成功");

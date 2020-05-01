@@ -16,6 +16,7 @@ public class SingleRedisPool {
     private static boolean blockWhenExhausted = Boolean.parseBoolean(PropertiesUtil.getProperty("redis.block.when.exhausted", "true")); // 连接耗尽时是否阻塞
     private static String ip = PropertiesUtil.getProperty("redis.ip");
     private static Integer port = Integer.parseInt(PropertiesUtil.getProperty("redis.port", "6379"));
+    private static String password = PropertiesUtil.getProperty("redis.password");
 
     private static void initPool() {
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
@@ -25,7 +26,7 @@ public class SingleRedisPool {
         jedisPoolConfig.setTestOnBorrow(testOnBorrow);
         jedisPoolConfig.setTestOnReturn(testOnReturn);
         jedisPoolConfig.setBlockWhenExhausted(blockWhenExhausted);
-        jedisPool = new JedisPool(jedisPoolConfig, ip, port, 1000*2);
+        jedisPool = new JedisPool(jedisPoolConfig, ip, port, 1000*2, password);
     }
 
     static {

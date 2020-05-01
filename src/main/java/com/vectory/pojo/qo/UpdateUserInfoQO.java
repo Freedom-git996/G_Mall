@@ -30,10 +30,12 @@ public class UpdateUserInfoQO {
     /**
      * 找回密码问题
      */
+    @ApiModelProperty(value = "密保问题")
     private String question;
 
     /**
      * 找回密码答案
      */
+    @ApiModelProperty(value = "密保答案")
     private String answer;
 }

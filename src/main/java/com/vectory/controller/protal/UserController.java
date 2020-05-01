@@ -34,9 +34,9 @@ public class UserController {
     @ResponseBody
     @RequestMapping(value = "login.do", method = RequestMethod.POST)
     @ApiOperation(value = "用户登录接口", httpMethod = "POST")
-    public CommonReturnType login(@ApiParam UserLoginQO userLoginQo,
-                                  HttpSession session,
-                                  HttpServletResponse response) {
+    public CommonReturnType login(HttpSession session,
+                                  HttpServletResponse response,
+                                  @ApiParam UserLoginQO userLoginQo) {
         ValidationResult result = validator.validate(userLoginQo);
         if (result.isHasErrors())
             return CommonReturnType.fail(result.getErrMsg());
