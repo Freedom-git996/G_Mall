@@ -8,12 +8,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.NotBlank;
 
+import java.io.Serializable;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @ApiModel(value = "校验密保问题的答案是否正确")
-public class CheckAnswerQO {
+public class CheckAnswerQO implements Serializable {
+    private static final long serialVersionUID = -5144153677091779979L;
 
     /**
      * 用户名

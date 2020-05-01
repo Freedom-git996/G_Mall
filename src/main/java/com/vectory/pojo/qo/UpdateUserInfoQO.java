@@ -9,13 +9,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Pattern;
+import java.io.Serializable;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @ApiModel(value = "用户登录状态下修改个人信息入参")
-public class UpdateUserInfoQO {
+public class UpdateUserInfoQO implements Serializable {
+    private static final long serialVersionUID = -5144153677091779979L;
 
     @Pattern(regexp = RegexpUtil.REGEX_EMAIL,
             message = "邮箱格式不正确")
