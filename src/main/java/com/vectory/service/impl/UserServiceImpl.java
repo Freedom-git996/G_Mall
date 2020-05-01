@@ -175,4 +175,21 @@ public class UserServiceImpl implements IUserService {
         JedisUtil.del(loginToken);
         return CommonReturnType.success("注销成功");
     }
+
+    @Override
+    @Transactional(propagation = Propagation.SUPPORTS)
+    public CommonReturnType loginBackend(UserLoginQO userLoginQo,
+                                  HttpSession session,
+                                  HttpServletResponse response) {
+        userLoginQo.setPassword(MD5Util.MD5EncodeUtf8(userLoginQo.getPassword()));
+        UserLoginVO userLoginVO = userMapper.selectForLogin(userLoginQo);
+        if(userLoginVO == null)
+            return CommonReturnType.fail(EmBusinessError.LOGIN_ERROR);
+        else if(userLoginVO.getRole() != GlobalContant.Role.ROLE_MANAGER) {
+            return CommonReturnType.fail(EmBusinessError.USER_NO_PERMISSION);
+        }
+        CookieUtil.setCookie(response, GlobalContant.LOGIN_COOKIE, session.getId());
+        JedisUtil.setEx(session.getId(), JsonUtil.obj2String(userLoginVO), GlobalContant.REDIS_SESSION_EXTIME);
+        return CommonReturnType.success(userLoginVO);
+    }
 }

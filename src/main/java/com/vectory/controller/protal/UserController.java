@@ -8,7 +8,6 @@ import com.vectory.service.IUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +21,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping(value = "/user/")
-@Api(tags = "用户接口")
+@Api(tags = "前台-用户接口")
 public class UserController {
 
     @Autowired

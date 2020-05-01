@@ -32,4 +32,8 @@ public interface IUserService {
 
     CommonReturnType logout(HttpServletRequest request,
                             HttpServletResponse response);
+
+    CommonReturnType loginBackend(UserLoginQO userLoginQo,
+                                  HttpSession session,
+                                  HttpServletResponse response);
 }
