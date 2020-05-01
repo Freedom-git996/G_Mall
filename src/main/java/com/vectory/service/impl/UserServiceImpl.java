@@ -156,11 +156,11 @@ public class UserServiceImpl implements IUserService {
         User recode = new User();
         BeanUtils.copyProperties(userLoginVO, recode);
         BeanUtils.copyProperties(updateUserInfoQO, recode);
-        int result = userMapper.updateByPrimaryKey(recode);
+        int result = userMapper.updateByPrimaryKeySelective(recode);
         if(result == 0) {
             return CommonReturnType.fail(EmBusinessError.NO_LOGIN);
         }
-        JedisUtil.setEx(loginToken, JsonUtil.obj2String(userLoginVO), GlobalContant.REDIS_SESSION_EXTIME);
+        JedisUtil.setEx(loginToken, JsonUtil.obj2String(recode), GlobalContant.REDIS_SESSION_EXTIME);
         return CommonReturnType.success("个人信息更新成功");
     }
 

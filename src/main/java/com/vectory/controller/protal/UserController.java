@@ -116,7 +116,7 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping(value = "logout.do", method = RequestMethod.POST)
-    @ApiOperation(value = "获取当前登录用户的详细信息", httpMethod = "POST")
+    @ApiOperation(value = "注销登录", httpMethod = "POST")
     public CommonReturnType logout(HttpServletRequest request,
                                    HttpServletResponse response) {
         return userService.logout(request, response);
