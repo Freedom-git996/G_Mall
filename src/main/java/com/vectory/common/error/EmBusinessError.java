@@ -10,6 +10,7 @@ public enum EmBusinessError implements CommonError {
     QUESTION_ANSWER_ERROR(1006, "密保问题答案错误"),
     RESET_TOKEN_ERROR(1007, "token失效"),
     USERINFO_UPDATE_ERROR(1008, "信息更新失败"),
+    USER_NO_PERMISSION(1009, "当前用户无权限"),
 
     ILLEGAL_ARGUMENT(501, "不合法参数"),
     SERVER_ERROR(500, "服务器内部异常，请联系管理员")
