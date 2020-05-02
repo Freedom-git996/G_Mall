@@ -3,7 +3,7 @@ package com.vectory.common.filter;
 import com.vectory.common.GlobalContant;
 import com.vectory.pojo.po.User;
 import com.vectory.utils.CookieUtil;
-import com.vectory.utils.JedisUtil;
+import com.vectory.utils.jedis.JedisUtil;
 import com.vectory.utils.JsonUtil;
 import org.apache.commons.lang3.StringUtils;
 

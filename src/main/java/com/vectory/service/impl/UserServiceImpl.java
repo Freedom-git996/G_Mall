@@ -9,7 +9,7 @@ import com.vectory.pojo.qo.*;
 import com.vectory.pojo.vo.UserLoginVO;
 import com.vectory.service.IUserService;
 import com.vectory.utils.CookieUtil;
-import com.vectory.utils.JedisUtil;
+import com.vectory.utils.jedis.JedisUtil;
 import com.vectory.utils.JsonUtil;
 import com.vectory.utils.MD5Util;
 import lombok.extern.slf4j.Slf4j;

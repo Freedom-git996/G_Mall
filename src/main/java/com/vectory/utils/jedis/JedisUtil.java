@@ -1,7 +1,7 @@
-package com.vectory.utils;
+package com.vectory.utils.jedis;
 
 import com.google.common.collect.Lists;
-import com.vectory.utils.jedis.SingleRedisPool;
+import com.vectory.utils.jedis.connetor.SingleRedisPool;
 import redis.clients.jedis.Jedis;
 
 import java.util.List;
