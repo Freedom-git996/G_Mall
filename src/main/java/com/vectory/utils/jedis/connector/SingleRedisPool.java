@@ -1,4 +1,4 @@
-package com.vectory.utils.jedis.connetor;
+package com.vectory.utils.jedis.connector;
 
 import com.vectory.utils.PropertiesUtil;
 import redis.clients.jedis.Jedis;
