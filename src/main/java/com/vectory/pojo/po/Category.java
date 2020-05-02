@@ -29,7 +29,7 @@ public class Category {
     /**
     * 类别状态1-正常,2-已废弃
     */
-    private Boolean status;
+    private int status;
 
     /**
     * 排序编号,同类展示顺序,数值相等则自然排序

@@ -1,7 +1,7 @@
 package com.vectory.common.error;
 
 public enum EmBusinessError implements CommonError {
-    LOGIN_ERROR(10001, "用户不存在或密码错误"),
+    LOGIN_ERROR(1001, "用户不存在或密码错误"),
     REGISTER_ERROR(1002, "注册失败"),
     USERNAME_REPEAT(1003, "用户名已存在"),
     EMAIL_REPEAT(1003, "邮箱已被注册"),
@@ -12,8 +12,12 @@ public enum EmBusinessError implements CommonError {
     USERINFO_UPDATE_ERROR(1008, "信息更新失败"),
     USER_NO_PERMISSION(1009, "当前用户无权限"),
 
-    ILLEGAL_ARGUMENT(501, "不合法参数"),
-    SERVER_ERROR(500, "服务器内部异常，请联系管理员")
+    CATEGORY_ADD_ERROR(2001, "新增品类失败"),
+    CATEGORY_NOT_EXIST(2002, "品类信息不存在"),
+    CATEGORY_UPDATE_ERROR(2003, "更新失败"),
+
+    ILLEGAL_ARGUMENT(5001, "不合法参数"),
+    SERVER_ERROR(5000, "服务器内部异常，请联系管理员")
     ;
 
     private int status;
