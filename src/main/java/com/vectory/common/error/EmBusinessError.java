@@ -16,6 +16,8 @@ public enum EmBusinessError implements CommonError {
     CATEGORY_NOT_EXIST(2002, "品类信息不存在"),
     CATEGORY_UPDATE_ERROR(2003, "更新失败"),
 
+    SHIPPING_ADD_ERROR(3001, "新增收货地址失败"),
+
     ILLEGAL_ARGUMENT(5001, "不合法参数"),
     SERVER_ERROR(5000, "服务器内部异常，请联系管理员")
     ;

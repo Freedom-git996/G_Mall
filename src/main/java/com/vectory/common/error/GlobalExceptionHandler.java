@@ -42,6 +42,6 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception.class)
     public CommonReturnType handleException(Exception ex) {
-        return CommonReturnType.create("服务器内部错误", 500);
+        return CommonReturnType.create(ex.getMessage(), 500);
     }
 }

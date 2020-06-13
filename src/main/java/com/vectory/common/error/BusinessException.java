@@ -1,6 +1,6 @@
 package com.vectory.common.error;
 
-public class BusinessException extends Exception implements CommonError {
+public class BusinessException extends RuntimeException implements CommonError {
 
     private CommonError commonError;
 
