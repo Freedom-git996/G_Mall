@@ -40,7 +40,7 @@
     <commons.io.version>2.6</commons.io.version>
     <commons.logging.version>1.2</commons.logging.version>
     <commons.net.version>3.6</commons.net.version>
-    <com.google.guava.version>27.1-jre</com.google.guava.version>
+    <com.google.guava.version>29.0-jre</com.google.guava.version>
     <joda.time.version>2.10.2</joda.time.version>
     <org.hibernate.validator.version>5.4.1.Final</org.hibernate.validator.version>
     <io.springfox.swagger2.version>2.9.2</io.springfox.swagger2.version>
