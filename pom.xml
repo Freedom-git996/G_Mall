@@ -19,7 +19,7 @@
 
     <org.spring.version>5.1.7.RELEASE</org.spring.version>
     <org.projectlombok.version>1.18.8</org.projectlombok.version>
-    <mysql.connect.version>5.1.47</mysql.connect.version>
+    <mysql.connect.version>8.0.28</mysql.connect.version>
     <org.mybatis.version>3.5.1</org.mybatis.version>
     <org.mybatis.spring.version>2.0.1</org.mybatis.spring.version>
     <com.alibaba.druid.version>1.1.17</com.alibaba.druid.version>
