@@ -39,7 +39,7 @@
     <commons.configuration.version>1.10</commons.configuration.version>
     <commons.io.version>2.6</commons.io.version>
     <commons.logging.version>1.2</commons.logging.version>
-    <commons.net.version>3.6</commons.net.version>
+    <commons.net.version>3.9.0</commons.net.version>
     <com.google.guava.version>27.1-jre</com.google.guava.version>
     <joda.time.version>2.10.2</joda.time.version>
     <org.hibernate.validator.version>5.4.1.Final</org.hibernate.validator.version>
